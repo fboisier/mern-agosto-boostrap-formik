@@ -14,6 +14,9 @@ function App() {
       <Router>
         
       <Switch>
+          <Route exact path="/people">
+            <Main />
+          </Route>
 
           <Route 
             path="/people/:id/edit"
@@ -25,12 +28,7 @@ function App() {
             path="/people/:id"
             component={Detail}
           />
-            
-          
 
-          <Route path="/people">
-            <Main />
-          </Route>
         </Switch>
 
      </Router>

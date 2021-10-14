@@ -9,6 +9,7 @@ app.use(cors())
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+require('./server/routes/usuario.rutas')(app);
 require('./server/routes/persona.rutas')(app);
 
 app.listen(8000, () => {
