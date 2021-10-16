@@ -3,7 +3,7 @@ import * as Yup from 'yup';
 import { Formik, Field, Form, ErrorMessage } from 'formik';
 import { FormGroup, Button, Alert, Row, Col, FormLabel } from 'react-bootstrap';
 
-export const Formulario = ({ejecutarSubmit}) => {
+export const Formulario = ({ejecutarSubmit, initialValues,titleButton}) => {
 
 
     const formSchema = Yup.object().shape({
@@ -26,13 +26,7 @@ export const Formulario = ({ejecutarSubmit}) => {
         <div>
 
             <Formik
-                initialValues={{
-                    nombre: "",
-                    apellido: "",
-                    email: "",
-                    password: "",
-                    confirmPassword: ""
-                }}
+                initialValues={initialValues}
                 validationSchema={formSchema}
                 onSubmit={ejecutarSubmit}
             >
@@ -71,13 +65,14 @@ export const Formulario = ({ejecutarSubmit}) => {
                                     className='mt-4'
                                     type='submit'
                                 >
-                                    Registrar
+                                    {titleButton}
                                 </Button>
                             </div>
                         </Col>
                     </Row>
 
                 </Form>
+                
 
             </Formik>
         </div>
