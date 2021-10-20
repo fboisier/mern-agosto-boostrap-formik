@@ -12,26 +12,26 @@ function App() {
   return (
     <div className="App">
       <Router>
-        
-      <Switch>
+
+        <Switch>
           <Route exact path="/people">
             <Main />
           </Route>
 
-          <Route 
+          <Route
             path="/people/:id/edit"
             component={Update}
           />
-          
 
-          <Route 
+
+          <Route
             path="/people/:id"
             component={Detail}
           />
 
         </Switch>
 
-     </Router>
+      </Router>
     </div>
   );
 }

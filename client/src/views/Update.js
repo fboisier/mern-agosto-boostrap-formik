@@ -7,11 +7,11 @@ import DeleteButton from '../components/DeleteButton';
 const Update = props => {
     const { id } = useParams();
     const [person, setPerson] = useState({});
-    const { firstName, lastName} = person;
+    const { firstName, lastName } = person;
     const [loaded, setLoaded] = useState(false);
-    const [errors, setErrors] = useState([]); 
+    const [errors, setErrors] = useState([]);
     let history = useHistory();
-    
+
     useEffect(() => {
         axios.get('http://localhost:8000/api/people/' + id)
             .then(res => {
@@ -24,7 +24,7 @@ const Update = props => {
             .then(res => {
                 console.log(res)
                 history.push("/people");
-            }).catch(err=>{
+            }).catch(err => {
                 const errorResponse = err.response.data.errors; // Get the errors from err.response.data
                 const errorArr = []; // Define a temp error array to push the messages in
                 for (const key of Object.keys(errorResponse)) { // Loop through all errors and get the messages
@@ -32,22 +32,22 @@ const Update = props => {
                 }
                 // Set Errors
                 setErrors(errorArr);
-            })     ;
+            });
     }
     return (
         <>
-        <h1>Update a Person</h1>
-        {loaded && (
-             <>
-              {errors.map((err, index) => <p key={index}>{err}</p>)}
-                <PersonForm
-                    onSubmitProp={updatePerson}
-                    initialFirstName={firstName}
-                    initialLastName={lastName}
-                />
-                <DeleteButton personId={person._id} successCallback={() => history.push("/people")} />
-            </>
-        )}
+            <h1>Update a Person</h1>
+            {loaded && (
+                <>
+                    {errors.map((err, index) => <p key={index}>{err}</p>)}
+                    <PersonForm
+                        onSubmitProp={updatePerson}
+                        initialFirstName={firstName}
+                        initialLastName={lastName}
+                    />
+                    <DeleteButton personId={person._id} successCallback={() => history.push("/people")} />
+                </>
+            )}
         </>
     )
 }
