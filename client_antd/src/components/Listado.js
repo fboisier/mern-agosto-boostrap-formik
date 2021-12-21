@@ -1,7 +1,7 @@
 import React from 'react'
 import { Button, Table } from 'antd';
 import { Link } from 'react-router-dom';
-
+import { uniqueArrayData } from "../helpers/uniqueArrayData";
 
 export const Listado = ({usuarios,eliminarUsuario}) => {
 
@@ -15,16 +15,24 @@ export const Listado = ({usuarios,eliminarUsuario}) => {
         {
             title: 'Nombre',
             dataIndex: 'nombre',
-            key: 'nombre'
+            key: 'nombre',
+            sorter: (a, b) => a.nombre.localeCompare(b.nombre),
+            sortDirections: ['descend', 'ascend'],
+            filters: uniqueArrayData(usuarios, "nombre").map(nombre => ({text: nombre, value: nombre})),
+
+
+            onFilter: (value, record) => record.nombre.indexOf(value) === 0,
         },
         {
             title: 'Apellido',
             dataIndex: 'apellido',
+            sorter: (a, b) => a.apellido.localeCompare(b.apellido),
             key: 'apellido'
         },
         {
             title: 'Email',
             dataIndex: 'email',
+            sorter: (a, b) => a.email.localeCompare(b.email),
             key: 'email'
         },
         {
@@ -51,8 +59,8 @@ export const Listado = ({usuarios,eliminarUsuario}) => {
 
     const config = { 
         pagination : {
-            defaultPageSize: 3,
-            pageSizeOptions : ['3', '6', '9'], 
+            defaultPageSize: 4,
+            pageSizeOptions : ['4', '6', '9'], 
             showSizeChanger : true,
             showQuickJumper : true,
             showTotal : total => `En total son ${total} registros`

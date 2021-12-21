@@ -9,6 +9,7 @@ import {
 import { NavBarMenu } from "./components/NavBarMenu";
 import { Contacto } from "./views/Contacto";
 import { Home } from "./views/Home";
+import { Mision } from "./views/Mision";
 import { Registro } from "./views/Registro";
 
 const App = () => {
@@ -26,6 +27,7 @@ const App = () => {
             <Route exact path="/registro/:id" component={Registro} />
             <Route exact path="/home" component={Home} />
             <Route exact path="/contacto" component={Contacto} />
+            <Route exact path="/mision" component={Mision} />
             
 
             <Redirect

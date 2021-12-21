@@ -32,6 +32,7 @@ export const Formulario = ({ejecutarSubmit, initialValues,titleButton}) => {
             >
 
                 <Form>
+                    
                     <FormGroup>
                         <FormLabel htmlFor="nombre">Nombre</FormLabel>
                         <Field id="nombre" type="text" name="nombre" placeholder="Nombre" className="form-control" />

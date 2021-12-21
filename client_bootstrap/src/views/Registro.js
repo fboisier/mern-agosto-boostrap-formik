@@ -118,7 +118,7 @@ export const Registro = () => {
     }
 
     const eliminarUsuario = (id) => {
-
+        
         Swal.fire({
             title: 'Estas seguro?',
             text: "No podras revertir esto!",

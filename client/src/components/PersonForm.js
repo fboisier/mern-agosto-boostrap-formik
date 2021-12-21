@@ -18,6 +18,8 @@ export const PersonForm = (props) => {
             <p>
                 <label>First Name</label><br/>
                 <input 
+                    required
+                    minLength="6"
                     type="text" 
                     name="firstName"
                     value={firstName}

@@ -23,6 +23,9 @@ export const NavBarMenu = () => {
                             <LinkContainer to="/contacto">
                                 <Nav.Link>Contacto</Nav.Link>
                             </LinkContainer>
+                            <LinkContainer to="/mision">
+                                <Nav.Link>Misiones</Nav.Link>
+                            </LinkContainer>
                         </Nav>
                     </Navbar.Collapse>
                 </Container>

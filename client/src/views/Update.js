@@ -37,7 +37,7 @@ const Update = props => {
     return (
         <>
             <h1>Update a Person</h1>
-            {loaded && (
+            {loaded ? (
                 <>
                     {errors.map((err, index) => <p key={index}>{err}</p>)}
                     <PersonForm
@@ -47,7 +47,7 @@ const Update = props => {
                     />
                     <DeleteButton personId={person._id} successCallback={() => history.push("/people")} />
                 </>
-            )}
+            ): <h1>CARGANDO.....</h1>}
         </>
     )
 }
